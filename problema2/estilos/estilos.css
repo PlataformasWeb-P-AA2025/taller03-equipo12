@@ -1,0 +1,48 @@
+/* Establece la fuente y el margen para toda la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+/* Contenedor principal con diseño flexbox y separación entre elementos */
+.contenedor {
+    display: flex; /* Activa el modelo de diseño flexible */
+    gap: 50px; /* Espaciado entre los elementos internos */
+}
+
+/* Estilos para el formulario */
+.formulario {
+    width: 15%; /* Define un ancho del 15% del contenedor padre */
+}
+
+/* Hace que las etiquetas y los inputs ocupen todo el ancho disponible */
+.formulario label,
+.formulario input {
+    display: block; /* Los coloca en bloques separados */
+    width: 100%; /* Ocupan el 100% del ancho */
+    margin-bottom: 10px; /* Espaciado inferior entre elementos */
+}
+
+/* Establece relleno para los inputs */
+.formulario input {
+    padding: 5px; /* Añade espacio interno para mejorar la apariencia */
+}
+
+/* Estilos para el botón */
+.formulario button {
+    margin-top: 15px; /* Espaciado superior */
+    padding: 7px 15px; /* Añade relleno para mejorar la usabilidad */
+}
+
+/* Define el ancho de una columna */
+.columna {
+    width: 15%;
+}
+
+/* Estilos para el área de resultado */
+.resultado {
+    background-color: #f9f9f9; /* Color de fondo */
+    padding: 15px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados para un mejor diseño */
+}

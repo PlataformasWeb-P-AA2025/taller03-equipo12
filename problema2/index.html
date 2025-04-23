@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Formulario Básico</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
+
 <body>
-     <div class="formulario">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" placeholder="Nombre">
+    <!-- Contenedor principal con elementos organizados -->
+    <div class="contenedor">
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" placeholder="Apellido">
+        <!-- Sección del formulario -->
+        <div class="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre">
 
-        <label for="fecha">Fecha de nacimiento:</label>
-        <input type="text" id="fecha" placeholder="MM/DD/YYYY">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" placeholder="Apellido">
 
-        <button onclick="generarMensaje()">Generar Mensaje</button>
-    </div>
+            <label for="fecha">Fecha de nacimiento:</label>
+            <input type="text" id="fecha" placeholder="MM/DD/YYYY">
 
-    <div class="columna">
-        <h3>Resultado:</h3>
-        <div id="columnaResultado" class="resultado"></div>
+            <!-- Botón para generar el mensaje -->
+            <button onclick="generarMensaje()">Generar Mensaje</button>
+        </div>
+
+        <!-- Sección para mostrar los datos ingresados -->
+        <div class="columna">
+            <h3>Datos Ingresados:</h3>
+            <div id="columnaResultado" class="resultado"></div>
+        </div>
     </div>
 
     <script>
+        // Activa el selector de fecha con opciones personalizadas
         $(function () {
             $("#fecha").datepicker({
-                dateFormat: "mm/dd/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "1900:2025"
+                dateFormat: "mm/dd/yy", // Formato de fecha
+                changeMonth: true,      // Permite cambiar el mes
+                changeYear: true,       // Permite cambiar el año
+                yearRange: "1900:2025"  // Rango de años disponibles
             });
         });
-        
+
+        // Función para recoger los datos del formulario y mostrarlos en pantalla
         function generarMensaje() {
             const nombre = document.getElementById("nombre").value;
             const apellido = document.getElementById("apellido").value;
             const fecha = document.getElementById("fecha").value;
 
-            console.log("Nombre:", nombre);
-            console.log("Apellido:", apellido);
-            console.log("Fecha de nacimiento:", fecha);
+            // Muestra los datos en la consola
+            console.log(nombre);
+            console.log(apellido);
+            console.log(fecha);
 
+            // Inserta los datos en el área de resultados
             $("#columnaResultado").html(`
-                <p><strong>Nombre:</strong> ${nombre}</p>
-                <p><strong>Apellido:</strong> ${apellido}</p>
-                <p><strong>Fecha de nacimiento:</strong> ${fecha}</p>
+            <p>${nombre}</p>
+            <p>${apellido}</p>
+            <p>${fecha}</p>
             `);
         }
     </script>
 
 </body>
+
 </html>

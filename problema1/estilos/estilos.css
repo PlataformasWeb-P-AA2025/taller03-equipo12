@@ -1,27 +1,30 @@
 /* Contenedor del mensaje */
 .uno {
-  border: 2px solid blue; /* Borde azul alrededor del contenedor */
-  background-color: #f5f5f5; /* Fondo gris claro */
-  padding: 10px; /* Espaciado interno */
+  border: 2px solid rgb(0, 0, 0); /* Borde negro alrededor del contenedor */
+  background-color: #a9c2ea; /* Fondo azul claro */
+  padding: 5px; /* Espaciado interno */
   margin: 20px auto; /* Margen superior/inferior, centrado horizontal */
-  width: 80%; /* Ancho del contenedor */
+  margin-top: 60px;
+  width: 91%;/* Ancho del contenedor */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
 /* Título del mensaje */
 .mensaje {
+  border: 2px solid rgb(252, 255, 59);
+  background-color: rgb(239, 239, 217);
   font-weight: bold; /* Texto en negrita */
   font-size: 20px; /* Tamaño del texto */
-  margin: 0; /* Eliminar margen por defecto */
+  margin: 8px; /* Eliminar margen por defecto */
+  padding: 14px;
 }
 
 /* Contenedor de los comentarios */
 .dos {
-  background-color: #c96f28; /* Color de fondo marrón/anaranjado */
-  padding: 10px; /* Espaciado interno */
-  width: 80%; /* Igual ancho que el contenedor anterior */
+  background-color: #d98e42; /* Color de fondo marrón/anaranjado */
+  padding: 7px; /* Espaciado interno */
+  width: 91%; /* Igual ancho que el contenedor anterior */
   margin: 0 auto 20px auto; /* Centrado con margen inferior */
-  border: 2px solid green; /* Borde verde */
 }
 
 /* Cada comentario individual */
@@ -29,7 +32,7 @@
   background-color: #d98e42; /* Color más claro que el fondo del contenedor */
   padding: 5px 10px; /* Espaciado interno */
   margin: 5px 0; /* Margen entre comentarios */
-  border-bottom: 1px solid #006400; /* Línea divisoria verde oscuro */
+  border-bottom: 4px solid #006400; /* Línea divisoria verde oscuro */
   color: white; /* Texto blanco */
   font-family: Arial, sans-serif; /* Fuente legible */
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Países</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
+</head>
+
+<body>
+    <h1>Información de Países</h1>
+    <button type="submit" id="obtenerInformacion">Obtener Información</button>
+    <button type="submit" id="limpiarInformacion">Limpiar información</button>
+    <br><br> <!-- Salto de línea para mejorar el diseño -->
+    <div id="mensajeFinal"></div>
+
+    <script>
+        $(document).ready(function () {
+            var url = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json";
+
+            $("#obtenerInformacion").click(function () {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: url
+                }).then(function (data) {
+
+                    var contenido = ""; // Variable que almacenará el contenido HTML dinámico
+
+                    // Recorre el arreglo de países obtenido en la respuesta
+                    data.forEach(pais => {
+
+                        // Para cada país, genera un bloque HTML con su información relevante
+                        contenido += `
+                            <div class="pais"> <!-- Contenedor individual para cada país -->
+                                <h2>${pais["CLDR display name"] || "Sin nombre"}</h2> <!-- Muestra el nombre del país -->
+                                <p><strong>Capital:</strong> ${pais["Capital"] || "No disponible"}</p> <!-- Capital del país -->
+                                <p><strong>FIPS Code:</strong> ${pais["FIPS"] || "No disponible"}</p> <!-- Código FIPS (identificación) -->
+                                <p><strong>Código FIFA:</strong> ${pais["FIFA"] || "No disponible"}</p> <!-- Código FIFA del país -->
+                                <p><strong>Continente:</strong> ${pais["Continent"] || "No disponible"}</p> <!-- Continente donde se ubica -->
+                                <p><strong>Idiomas:</strong> ${pais["Languages"] || "No disponible"}</p> <!-- Idiomas oficiales hablados -->
+                                <p><strong>Geoname ID:</strong> ${pais["Geoname ID"] || "No disponible"}</p> <!-- Identificador geográfico -->
+                                <p><strong>Señal de tránsito internacional:</strong> ${pais["Car signs"] || "No disponible"}</p> <!-- Código de señal de tránsito usado en el país -->
+                            </div>
+                        `;
+                    });
+
+                    // Inserta el contenido HTML generado en el elemento con el ID "mensajeFinal"
+                    $("#mensajeFinal").html(contenido);
+                });
+            });
+
+
+            $("#limpiarInformacion").click(function () {
+                $('#mensajeFinal').empty();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
