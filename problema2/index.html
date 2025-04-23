@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Básico</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+<body>
+     <div class="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Nombre">
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Apellido">
+
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="text" id="fecha" placeholder="MM/DD/YYYY">
+
+        <button onclick="generarMensaje()">Generar Mensaje</button>
+    </div>
+
+    <div class="columna">
+        <h3>Resultado:</h3>
+        <div id="columnaResultado" class="resultado"></div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#fecha").datepicker({
+                dateFormat: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2025"
+            });
+        });
+        
+        function generarMensaje() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const fecha = document.getElementById("fecha").value;
+
+            console.log("Nombre:", nombre);
+            console.log("Apellido:", apellido);
+            console.log("Fecha de nacimiento:", fecha);
+
+            $("#columnaResultado").html(`
+                <p><strong>Nombre:</strong> ${nombre}</p>
+                <p><strong>Apellido:</strong> ${apellido}</p>
+                <p><strong>Fecha de nacimiento:</strong> ${fecha}</p>
+            `);
+        }
+    </script>
+
+</body>
+</html>
